@@ -1,0 +1,3 @@
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\Debug\PracticeProj.vcxprojAssemblyReference.cache
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\Debug\PracticeProj.MyForm.resources
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\Debug\PracticeProj.vcxproj.GenerateResource.cache
