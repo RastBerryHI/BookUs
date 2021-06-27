@@ -1,0 +1,23 @@
+﻿  pch.cpp
+  PracticeTests.cpp
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(5,24): error C2871: System: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(6,18): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(6,40): error C2871: ComponentModel: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(7,18): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(7,37): error C2871: Collections: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(8,18): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(8,40): error C2871: Forms: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(9,18): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(9,30): error C2871: Data: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(10,18): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(10,33): error C2871: Drawing: пространство имен с таким именем не существует
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(15,2): error C2059: синтаксическая ошибка: public
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(15,28): error C2059: синтаксическая ошибка: public
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(15,35): error C2653: System: не является именем класса или пространства имен
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(16,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(16,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\musae\source\repos\PracticeProj\PracticeTests\PracticeTests.cpp(16,18): error C2039: "MyFrom": не является членом "PracticeProj".
+C:\Users\musae\source\repos\PracticeProj\PracticeProj\MyForm.h(3): message : см. объявление "PracticeProj"
+C:\Users\musae\source\repos\PracticeProj\PracticeTests\PracticeTests.cpp(16,1): error C2065: MyFrom: необъявленный идентификатор
+C:\Users\musae\source\repos\PracticeProj\PracticeTests\PracticeTests.cpp(16,25): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "fm"
+C:\Users\musae\source\repos\PracticeProj\PracticeTests\PracticeTests.cpp(16,25): error C2065: fm: необъявленный идентификатор
