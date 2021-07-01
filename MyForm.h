@@ -2,6 +2,7 @@
 
 #ifndef MYFORM_H
 #define MYFORM_H
+
 namespace PracticeProj {
 	
 	using namespace System;
@@ -57,7 +58,9 @@ namespace PracticeProj {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ authorColmun;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ priceColmun;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ circulationColmun;
-	private: System::Windows::Forms::TextBox^ seatchTextBox;
+	private: System::Windows::Forms::TextBox^ seatchBox;
+
+
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Button^ button2;
 	internal: System::ComponentModel::Container^ components;
@@ -83,7 +86,7 @@ namespace PracticeProj {
 			this->authorColmun = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->priceColmun = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->circulationColmun = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->seatchTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->seatchBox = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -96,7 +99,7 @@ namespace PracticeProj {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Emoji", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button1->Location = System::Drawing::Point(897, 504);
+			this->button1->Location = System::Drawing::Point(862, 504);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(170, 40);
 			this->button1->TabIndex = 0;
@@ -131,7 +134,7 @@ namespace PracticeProj {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label2->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->label2->Location = System::Drawing::Point(732, 108);
+			this->label2->Location = System::Drawing::Point(697, 108);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(76, 23);
 			this->label2->TabIndex = 31;
@@ -145,7 +148,7 @@ namespace PracticeProj {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label4->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->label4->Location = System::Drawing::Point(730, 67);
+			this->label4->Location = System::Drawing::Point(695, 67);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(88, 23);
 			this->label4->TabIndex = 33;
@@ -155,7 +158,7 @@ namespace PracticeProj {
 			// 
 			this->nameTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->nameTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
-			this->nameTextBox->Location = System::Drawing::Point(820, 94);
+			this->nameTextBox->Location = System::Drawing::Point(785, 94);
 			this->nameTextBox->Name = L"nameTextBox";
 			this->nameTextBox->Size = System::Drawing::Size(247, 37);
 			this->nameTextBox->TabIndex = 27;
@@ -164,7 +167,7 @@ namespace PracticeProj {
 			// 
 			this->authorTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->authorTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
-			this->authorTextBox->Location = System::Drawing::Point(820, 135);
+			this->authorTextBox->Location = System::Drawing::Point(785, 135);
 			this->authorTextBox->Name = L"authorTextBox";
 			this->authorTextBox->Size = System::Drawing::Size(247, 37);
 			this->authorTextBox->TabIndex = 28;
@@ -173,7 +176,7 @@ namespace PracticeProj {
 			// 
 			this->priceTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->priceTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
-			this->priceTextBox->Location = System::Drawing::Point(820, 53);
+			this->priceTextBox->Location = System::Drawing::Point(785, 53);
 			this->priceTextBox->Name = L"priceTextBox";
 			this->priceTextBox->Size = System::Drawing::Size(247, 37);
 			this->priceTextBox->TabIndex = 29;
@@ -186,7 +189,7 @@ namespace PracticeProj {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label3->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->label3->Location = System::Drawing::Point(732, 147);
+			this->label3->Location = System::Drawing::Point(697, 147);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(74, 23);
 			this->label3->TabIndex = 32;
@@ -200,7 +203,7 @@ namespace PracticeProj {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label5->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->label5->Location = System::Drawing::Point(730, 22);
+			this->label5->Location = System::Drawing::Point(695, 22);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(84, 23);
 			this->label5->TabIndex = 34;
@@ -210,7 +213,7 @@ namespace PracticeProj {
 			// 
 			this->circulationTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->circulationTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
-			this->circulationTextBox->Location = System::Drawing::Point(820, 12);
+			this->circulationTextBox->Location = System::Drawing::Point(785, 12);
 			this->circulationTextBox->Name = L"circulationTextBox";
 			this->circulationTextBox->Size = System::Drawing::Size(247, 37);
 			this->circulationTextBox->TabIndex = 30;
@@ -230,7 +233,7 @@ namespace PracticeProj {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(1035, 320);
+			this->dataGridView1->Size = System::Drawing::Size(1000, 320);
 			this->dataGridView1->TabIndex = 26;
 			// 
 			// nameColmun
@@ -257,14 +260,14 @@ namespace PracticeProj {
 			this->circulationColmun->MinimumWidth = 6;
 			this->circulationColmun->Name = L"circulationColmun";
 			// 
-			// seatchTextBox
+			// seatchBox
 			// 
-			this->seatchTextBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->seatchTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
-			this->seatchTextBox->Location = System::Drawing::Point(439, 38);
-			this->seatchTextBox->Name = L"seatchTextBox";
-			this->seatchTextBox->Size = System::Drawing::Size(247, 37);
-			this->seatchTextBox->TabIndex = 35;
+			this->seatchBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->seatchBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.8F));
+			this->seatchBox->Location = System::Drawing::Point(404, 38);
+			this->seatchBox->Name = L"seatchBox";
+			this->seatchBox->Size = System::Drawing::Size(247, 37);
+			this->seatchBox->TabIndex = 35;
 			// 
 			// label6
 			// 
@@ -274,7 +277,7 @@ namespace PracticeProj {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->label6->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->label6->Location = System::Drawing::Point(525, 12);
+			this->label6->Location = System::Drawing::Point(490, 12);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(84, 23);
 			this->label6->TabIndex = 36;
@@ -287,7 +290,7 @@ namespace PracticeProj {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Emoji", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->button2->Location = System::Drawing::Point(580, 102);
+			this->button2->Location = System::Drawing::Point(545, 102);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(106, 31);
 			this->button2->TabIndex = 37;
@@ -300,10 +303,10 @@ namespace PracticeProj {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->ClientSize = System::Drawing::Size(1100, 553);
+			this->ClientSize = System::Drawing::Size(1065, 553);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->seatchTextBox);
+			this->Controls->Add(this->seatchBox);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->nameTextBox);
@@ -341,7 +344,6 @@ namespace PracticeProj {
 		bool IsDigitField(String^ str);
 		char* ToCnstChr(String^ str);
 
-		void FindLineByString(String^ textArg);
 		void SwapChars(Book* book);
 };
 };

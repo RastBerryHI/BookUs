@@ -17,4 +17,3 @@ Git Mastery;Dungeon Masster;300,25;455;
 IT-pedia;Олексій Прядко;228,45;45000;
 Tech Nincha;Stonkser;3123,00;1241;
 C\C++ Language;Lammer;555,55;555555;
-23;23;123,00;123;

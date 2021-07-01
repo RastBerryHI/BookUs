@@ -27,21 +27,21 @@ int main(array<String^>^ argv)
 	Application::Run(% frm);
 }
 
-// ГЋГЎГ°Г ГЎГ®ГІГЄГ  Г±Г®ГЎГ»ГІГ»ГЁГї Г­Г Г¦Г ГІГЁГї ГЈГ«Г ГўГ­Г®Г© ГЄГ­Г®ГЇГЄГЁ
+// Обработка событыия нажатия главной кнопки
 System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	int txtCount = this->Controls->Count;
 	for (int i = 0; i < txtCount; i++)
 	{
 		if (this->Controls[i]->Name->Contains("TextBox") && String::IsNullOrEmpty(this->Controls[i]->Text)) {
-			MessageBox::Show("Г“Г±Ві ГЇГ®Г«Гї ГЇГ®ГўГЁГ­Г­Ві ГЎГіГІГЁ Г§Г ГЇГ®ГўГ­ГҐГ­ГЁГ¬ГЁ", "ГЏГіГ±ГІГҐ ГЇГ®Г«ГҐ", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("Усі поля повинні бути заповненими", "Пусте поле", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return;
 		}
 	}
 	
 	if(IsDigitField(circulationTextBox->Text) == false)
 	{
-		MessageBox::Show("Г“ ГЇГ®Г«Ві ГІГЁГ°Г Г¦Гі Г¬Г®Г¦ГіГІГј ГЎГіГІГЁ Г«ГЁГёГҐ Г¶ВіГ«Ві Г§Г­Г Г·ГҐГ­Г­Гї", "ГЌГҐГўВіГ°Г­Ві Г¤Г Г­Ві", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("У полі тиражу можуть бути лише цілі значення", "Невірні дані", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		circulationTextBox->Text = "";
 		return;
 	}
@@ -49,7 +49,7 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 	double price = atof(MyForm::ToCnstChr(priceTextBox->Text));
 	if(price <= 0)
 	{
-		MessageBox::Show("Г‚ГЁ ГўГЄГ Г§Г Г«ГЁ Г­ГҐГўВіГ°Г­ГҐ Г§Г­Г Г·ГҐГ­Г­Гї Г¶ВіГ­ГЁ", "ГЌГҐГўВіГ°Г­Ві Г¤Г Г­Ві", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Ви вказали невірне значення ціни", "Невірні дані", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		priceTextBox->Text = "";
 		return;
 	}
@@ -69,7 +69,7 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 	char* sus = book.name;
 	char* piece = strtok(strdup(sus), " \\/,.-:;|");
 	while (piece != NULL) {
-		if (strcmp(piece, "Г‘") == 0) {
+		if (strcmp(piece, "С") == 0) {
 			comboBox2->Items->Add(gcnew String(sus));
 		}
 
@@ -87,8 +87,6 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 		if(this->Controls[i]->Name->Contains("TextBox"))
 			MyForm::ClearTextBoxes(this->Controls[i]);
 	}
-
-	dataGridView1->Select();
 }
 
 System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
@@ -96,12 +94,12 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	FILE* file = fopen("books.txt", "rb");
 
 	if (String::IsNullOrEmpty(seatchBox->Text)) {
-		MessageBox::Show("ГЏГ®Г«ГҐ ГЇГ®ГёГіГЄГі ГЇГіГ±ГІГҐ, Г±ГЇГ°Г®ГЎГіГ©ГІГҐ ГўГўГҐГ±ГІГЁ Г­Г Г§ГўГі ГЄГ­ГЁГЈГЁ Гі ГЇГ®Г«ГҐ \"ГЏГ®ГёГіГЄ\" ", "ГГіГЄГ Г­Г  ГЄГ­ГЁГЈГ ", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show("Поле пошуку пусте, спробуйте ввести назву книги у поле \"Пошук\" ", "Шукана книга", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		return System::Void();
 	}
 
 	if (!file) {
-		MessageBox::Show("ГЌГҐ Г±ГІГўГ®Г°ГҐГ­Г® Г¦Г®Г¤Г­Г®ГЈГ® Г§Г ГЇГЁГ±Гі!", "Г‚ВіГ¤Г±ГіГІГ­ВіГ© ГґГ Г©Г«", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Не створено жодного запису!", "Відсутній файл", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return System::Void();
 	}
 
@@ -122,18 +120,19 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	}
 	
 	if(!String::IsNullOrEmpty(str))
-		MessageBox::Show(str, "Г‡Г­Г Г©Г¤ГҐГ­Г® Г§Г ГЇГЁГ±", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show(str, "Знайдено запис", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	else if(String::IsNullOrEmpty(str))
-		MessageBox::Show(String::Concat("ГЌГҐ Г§Г­Г Г©Г¤ГҐГ­Г® Г¦Г®Г¤Г­Г®ГЈГ® Г§Г ГЇГЁГ±Гі Г§Г  Г§Г ГЇГЁГІГ®Г¬ \"", seatchBox->Text, "\""), "Г‚ВіГ¤Г±ГіГІГ­ВіГ© Г§Г ГЇГЁГ±", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(String::Concat("Не знайдено жодного запису за запитом \"", seatchBox->Text, "\""), "Відсутній запис", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 	fclose(file);
 	seatchBox->Text = "";
 }
 
-// ГЋГ·ГЁГ±ГІГЄГ  ГЇГ®Г«ГҐГ©
+// Очистка полей
 System::Void MyForm::ClearTextBoxes(Control^ textBox)
 {
 	textBox->Text = "";
 }
+
 int PracticeProj::MyForm::CountLines()
 {
 	int count_lines = 0;
@@ -154,7 +153,7 @@ int PracticeProj::MyForm::CountLines()
 	return count_lines;
 }
 
-// Г‡Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ comboBox2 Г­Г Г§ГўГ Г­ГЁГїГ¬ГЁ ГЄГ­ГЁГЈ ГЇГ® ГїГ§Г»ГЄГі Г‘
+// Заполнение comboBox2 названиями книг по языку С
 System::Void PracticeProj::MyForm::FillUpCLangComboBox(ComboBox^ comboBox)
 {
 	FILE* file = fopen("books.txt", "rb");
@@ -175,7 +174,7 @@ System::Void PracticeProj::MyForm::FillUpCLangComboBox(ComboBox^ comboBox)
 					comboBox->Items->Add(gcnew String(pch));
 				}
 
-				if (strcmp(piece, "Г‘") == 0) {
+				if (strcmp(piece, "С") == 0) {
 					comboBox->Items->Add(gcnew String(pch));
 				}
 				piece = strtok(NULL, " \\/,.-:;|");
@@ -217,7 +216,7 @@ System::Void PracticeProj::MyForm::FillUpDataGridView(DataGridView^ dataGridView
 
 }
 
-// ГЉГ®Г­ГўГҐГ°ГІГ Г¶ГЁГї ГЁГ§ common language interface Гў const char*
+// Конвертация из common language interface в const char*
 char* MyForm::ToCnstChr(String^ str)
 {
 	msclr::interop::marshal_context oMarshalContext;
@@ -225,29 +224,13 @@ char* MyForm::ToCnstChr(String^ str)
 	return ready;
 }
 
-void PracticeProj::MyForm::FindLineByString(String^ textArg)
-{
-	FILE* file = fopen("books.txt", "rb");	int bufferLength = 255, lineIndex = 0;
-	if (file == NULL)
-	{
-		fclose(fopen("books.txt", "wb"));
-		file = fopen("books.txt", "rb");
-	}
-	char line[255];
-	while (fgets(line, bufferLength, file)) {
-		if (strstr(line, ToCnstChr(textArg)) != NULL) {
-			return System::Void();
-		}
-	}
-	fclose(file);
-}
 
 void PracticeProj::MyForm::SwapChars(Book* book)
 {	
 	dataGridView1->Rows->Add(gcnew String(book->name), gcnew String(book->author), book->price, book->circulation);
 }
 
-// ГЏГ°Г®ГўГҐГ°ГЄГ  ГўГ±ГҐ Г«ГЁ Г±ГЁГ¬ГўГ®Г«Г» Гў Г±ГІГ°Г®ГЄГҐ ГїГўГ«ГїГѕГІГ±Гї Г¶ГЁГґГ°Г Г¬ГЁ
+// Проверка все ли символы в строке являются цифрами
 bool MyForm::IsDigitField(String^ str)
 {
 	const char* field = MyForm::ToCnstChr(str);
