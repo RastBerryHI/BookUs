@@ -27,21 +27,21 @@ int main(array<String^>^ argv)
 	Application::Run(% frm);
 }
 
-// Обработка событыия нажатия главной кнопки
+// ГЋГЎГ°Г ГЎГ®ГІГЄГ  Г±Г®ГЎГ»ГІГ»ГЁГї Г­Г Г¦Г ГІГЁГї ГЈГ«Г ГўГ­Г®Г© ГЄГ­Г®ГЇГЄГЁ
 System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	int txtCount = this->Controls->Count;
 	for (int i = 0; i < txtCount; i++)
 	{
 		if (this->Controls[i]->Name->Contains("TextBox") && String::IsNullOrEmpty(this->Controls[i]->Text)) {
-			MessageBox::Show("Усі поля повинні бути заповненими", "Пусте поле", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+			MessageBox::Show("Г“Г±Ві ГЇГ®Г«Гї ГЇГ®ГўГЁГ­Г­Ві ГЎГіГІГЁ Г§Г ГЇГ®ГўГ­ГҐГ­ГЁГ¬ГЁ", "ГЏГіГ±ГІГҐ ГЇГ®Г«ГҐ", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			return;
 		}
 	}
 	
 	if(IsDigitField(circulationTextBox->Text) == false)
 	{
-		MessageBox::Show("У полі тиражу можуть бути лише цілі значення", "Невірні дані", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Г“ ГЇГ®Г«Ві ГІГЁГ°Г Г¦Гі Г¬Г®Г¦ГіГІГј ГЎГіГІГЁ Г«ГЁГёГҐ Г¶ВіГ«Ві Г§Г­Г Г·ГҐГ­Г­Гї", "ГЌГҐГўВіГ°Г­Ві Г¤Г Г­Ві", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		circulationTextBox->Text = "";
 		return;
 	}
@@ -49,7 +49,7 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 	double price = atof(MyForm::ToCnstChr(priceTextBox->Text));
 	if(price <= 0)
 	{
-		MessageBox::Show("Ви вказали невірне значення ціни", "Невірні дані", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("Г‚ГЁ ГўГЄГ Г§Г Г«ГЁ Г­ГҐГўВіГ°Г­ГҐ Г§Г­Г Г·ГҐГ­Г­Гї Г¶ВіГ­ГЁ", "ГЌГҐГўВіГ°Г­Ві Г¤Г Г­Ві", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		priceTextBox->Text = "";
 		return;
 	}
@@ -57,7 +57,7 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 	Book book;
 
 	book.name = ToCnstChr(nameTextBox->Text);
-	book.author = ToCnstChr(nameTextBox->Text);
+	book.author = ToCnstChr(authorTextBox->Text);
 	book.price = atof(ToCnstChr(priceTextBox->Text));
 	book.circulation = atoi(ToCnstChr(circulationTextBox->Text));
 
@@ -69,7 +69,7 @@ System::Void MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 	char* sus = book.name;
 	char* piece = strtok(strdup(sus), " \\/,.-:;|");
 	while (piece != NULL) {
-		if (strcmp(piece, "С") == 0) {
+		if (strcmp(piece, "Г‘") == 0) {
 			comboBox2->Items->Add(gcnew String(sus));
 		}
 
@@ -96,12 +96,12 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	FILE* file = fopen("books.txt", "rb");
 
 	if (String::IsNullOrEmpty(seatchBox->Text)) {
-		MessageBox::Show("Поле пошуку пусте, спробуйте ввести назву книги у поле \"Пошук\" ", "Шукана книга", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show("ГЏГ®Г«ГҐ ГЇГ®ГёГіГЄГі ГЇГіГ±ГІГҐ, Г±ГЇГ°Г®ГЎГіГ©ГІГҐ ГўГўГҐГ±ГІГЁ Г­Г Г§ГўГі ГЄГ­ГЁГЈГЁ Гі ГЇГ®Г«ГҐ \"ГЏГ®ГёГіГЄ\" ", "ГГіГЄГ Г­Г  ГЄГ­ГЁГЈГ ", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		return System::Void();
 	}
 
 	if (!file) {
-		MessageBox::Show("Не створено жодного запису!", "Відсутній файл", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		MessageBox::Show("ГЌГҐ Г±ГІГўГ®Г°ГҐГ­Г® Г¦Г®Г¤Г­Г®ГЈГ® Г§Г ГЇГЁГ±Гі!", "Г‚ВіГ¤Г±ГіГІГ­ВіГ© ГґГ Г©Г«", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return System::Void();
 	}
 
@@ -122,14 +122,14 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	}
 	
 	if(!String::IsNullOrEmpty(str))
-		MessageBox::Show(str, "Знайдено запис", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		MessageBox::Show(str, "Г‡Г­Г Г©Г¤ГҐГ­Г® Г§Г ГЇГЁГ±", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	else if(String::IsNullOrEmpty(str))
-		MessageBox::Show(String::Concat("Не знайдено жодного запису за запитом \"", seatchBox->Text, "\""), "Відсутній запис", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(String::Concat("ГЌГҐ Г§Г­Г Г©Г¤ГҐГ­Г® Г¦Г®Г¤Г­Г®ГЈГ® Г§Г ГЇГЁГ±Гі Г§Г  Г§Г ГЇГЁГІГ®Г¬ \"", seatchBox->Text, "\""), "Г‚ВіГ¤Г±ГіГІГ­ВіГ© Г§Г ГЇГЁГ±", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 	fclose(file);
 	seatchBox->Text = "";
 }
 
-// Очистка полей
+// ГЋГ·ГЁГ±ГІГЄГ  ГЇГ®Г«ГҐГ©
 System::Void MyForm::ClearTextBoxes(Control^ textBox)
 {
 	textBox->Text = "";
@@ -154,7 +154,7 @@ int PracticeProj::MyForm::CountLines()
 	return count_lines;
 }
 
-// Заполнение comboBox2 названиями книг по языку С
+// Г‡Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ comboBox2 Г­Г Г§ГўГ Г­ГЁГїГ¬ГЁ ГЄГ­ГЁГЈ ГЇГ® ГїГ§Г»ГЄГі Г‘
 System::Void PracticeProj::MyForm::FillUpCLangComboBox(ComboBox^ comboBox)
 {
 	FILE* file = fopen("books.txt", "rb");
@@ -175,7 +175,7 @@ System::Void PracticeProj::MyForm::FillUpCLangComboBox(ComboBox^ comboBox)
 					comboBox->Items->Add(gcnew String(pch));
 				}
 
-				if (strcmp(piece, "С") == 0) {
+				if (strcmp(piece, "Г‘") == 0) {
 					comboBox->Items->Add(gcnew String(pch));
 				}
 				piece = strtok(NULL, " \\/,.-:;|");
@@ -217,7 +217,7 @@ System::Void PracticeProj::MyForm::FillUpDataGridView(DataGridView^ dataGridView
 
 }
 
-// Конвертация из common language interface в const char*
+// ГЉГ®Г­ГўГҐГ°ГІГ Г¶ГЁГї ГЁГ§ common language interface Гў const char*
 char* MyForm::ToCnstChr(String^ str)
 {
 	msclr::interop::marshal_context oMarshalContext;
@@ -247,7 +247,7 @@ void PracticeProj::MyForm::SwapChars(Book* book)
 	dataGridView1->Rows->Add(gcnew String(book->name), gcnew String(book->author), book->price, book->circulation);
 }
 
-// Проверка все ли символы в строке являются цифрами
+// ГЏГ°Г®ГўГҐГ°ГЄГ  ГўГ±ГҐ Г«ГЁ Г±ГЁГ¬ГўГ®Г«Г» Гў Г±ГІГ°Г®ГЄГҐ ГїГўГ«ГїГѕГІГ±Гї Г¶ГЁГґГ°Г Г¬ГЁ
 bool MyForm::IsDigitField(String^ str)
 {
 	const char* field = MyForm::ToCnstChr(str);
