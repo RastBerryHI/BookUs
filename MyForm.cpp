@@ -95,7 +95,7 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 {
 	FILE* file = fopen("books.txt", "rb");
 
-	if (String::IsNullOrEmpty(seatchTextBox->Text)) {
+	if (String::IsNullOrEmpty(seatchBox->Text)) {
 		MessageBox::Show("Поле пошуку пусте, спробуйте ввести назву книги у поле \"Пошук\" ", "Шукана книга", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 		return System::Void();
 	}
@@ -106,7 +106,7 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	}
 
 	char buffer[256];
-	char* request = ToCnstChr(seatchTextBox->Text);
+	char* request = ToCnstChr(seatchBox->Text);
 
 	String^ str = "";
 
@@ -124,9 +124,9 @@ System::Void PracticeProj::MyForm::button2_Click(System::Object^ sender, System:
 	if(!String::IsNullOrEmpty(str))
 		MessageBox::Show(str, "Знайдено запис", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	else if(String::IsNullOrEmpty(str))
-		MessageBox::Show(String::Concat("Не знайдено жодного запису за запитом \"", seatchTextBox->Text, "\""), "Відсутній запис", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(String::Concat("Не знайдено жодного запису за запитом \"", seatchBox->Text, "\""), "Відсутній запис", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 	fclose(file);
-	seatchTextBox->Text = "";
+	seatchBox->Text = "";
 }
 
 // Очистка полей
